@@ -43,6 +43,11 @@ class SongActivity : AppCompatActivity() {
         checkAndRequestPermissions()
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        mediaPlayer.release()
+    }
+
     private fun initComponents() {
         recyclerView = findViewById(R.id.recycler_view)
         textViewErrorMessage = findViewById(R.id.tv_error_message)
