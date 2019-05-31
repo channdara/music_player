@@ -1,11 +1,10 @@
 <resources>
 
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimaryDark">@color/ic_launcher_background</item>
+        <item name="colorPrimary">@color/ic_launcher_background</item>
         <item name="colorAccent">@android:color/holo_red_light</item>
         <item name="android:fontFamily">@font/product_sans_regular</item>
-        <item name="android:windowTranslucentStatus">true</item>
-        <item name="android:windowTranslucentNavigation">true</item>
-        <item name="android:fitsSystemWindows">true</item>
     </style>
 
 </resources>
