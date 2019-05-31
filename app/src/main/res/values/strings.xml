@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MP3 Player</string>
+    <string name="toolbar_title">Music</string>
+    <string name="no_music_found_on_your_phone">No music found on your phone!</string>
+</resources>
