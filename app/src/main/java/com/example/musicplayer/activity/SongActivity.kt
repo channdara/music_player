@@ -25,7 +25,7 @@ class SongActivity : AppCompatActivity() {
     private var errorMessage: String = ""
     private var previousIndex: Int = -1
 
-    private val postDelayed: Long = 500
+    private val postDelayed: Long = 1000
     private val songList: ArrayList<Song> = ArrayList()
     private val mediaPlayer: MediaPlayer = MediaPlayer()
     private val handler: Handler = Handler()
@@ -41,11 +41,6 @@ class SongActivity : AppCompatActivity() {
         setContentView(R.layout.activity_song)
         initComponents()
         checkAndRequestPermissions()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        mediaPlayer.release()
     }
 
     private fun initComponents() {
