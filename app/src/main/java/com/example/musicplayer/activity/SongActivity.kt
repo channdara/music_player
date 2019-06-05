@@ -25,7 +25,7 @@ class SongActivity : AppCompatActivity() {
     private var errorMessage: String = ""
     private var previousIndex: Int = -1
 
-    private val postDelayed: Long = 1000
+    private val postDelayed: Long = 250
     private val songList: ArrayList<Song> = ArrayList()
     private val mediaPlayer: MediaPlayer = MediaPlayer()
     private val handler: Handler = Handler()
