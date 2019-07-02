@@ -1,10 +1,19 @@
 <resources>
 
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimaryDark">@color/ic_launcher_background</item>
-        <item name="colorPrimary">@color/ic_launcher_background</item>
+        <item name="colorPrimaryDark">@color/main_color</item>
+        <item name="colorPrimary">@color/main_color</item>
         <item name="colorAccent">@android:color/holo_red_light</item>
         <item name="android:fontFamily">@font/product_sans_regular</item>
+        <item name="android:statusBarColor">@color/main_color</item>
+        <item name="android:windowActionBarOverlay">true</item>
     </style>
-
+    <style name="SplashScreen" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowFullscreen">true</item>
+    </style>
+    <style name="MySeekBar" parent="Widget.AppCompat.SeekBar">
+        <item name="android:progressBackgroundTint">@android:color/darker_gray</item>
+        <item name="android:progressTint">@color/main_color</item>
+        <item name="android:colorControlActivated">@android:color/holo_blue_light</item>
+    </style>
 </resources>

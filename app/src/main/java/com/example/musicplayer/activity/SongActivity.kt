@@ -21,7 +21,6 @@ class SongActivity : AppCompatActivity() {
     private lateinit var textViewErrorMessage: TextView
     private lateinit var seekBar: SeekBar
     private lateinit var adapter: SongAdapter
-
     private var errorMessage: String = ""
     private var previousIndex: Int = -1
 
@@ -47,6 +46,7 @@ class SongActivity : AppCompatActivity() {
         recyclerView = findViewById(R.id.recycler_view)
         textViewErrorMessage = findViewById(R.id.tv_error_message)
         seekBar = findViewById(R.id.seek_bar)
+
     }
 
     private fun checkAndRequestPermissions() {
