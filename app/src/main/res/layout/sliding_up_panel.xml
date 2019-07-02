@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginTop="?attr/actionBarSize"
-    android:background="@color/color_background">
+    android:background="@color/color_background"
+    android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -16,6 +17,7 @@
             android:src="@drawable/ic_arrow_down" />
 
         <LinearLayout
+            android:id="@+id/mini_play"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -77,6 +79,157 @@
                     android:textSize="16sp" />
 
             </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/iv_default"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_below="@id/mini_play"
+            android:layout_centerHorizontal="true">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/default_song_album">
+
+            </ImageView>
+        </LinearLayout>
+
+        <SeekBar
+            android:id="@+id/seek_bar"
+            style="@style/MySeekBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/iv_default"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:splitTrack="false"
+            android:thumbTint="@color/main_color" />
+
+        <TextView
+            android:id="@+id/song_duration_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/seek_bar"
+            android:layout_marginStart="32dp"
+            android:text="00:00"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:id="@+id/song_duration_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/seek_bar"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="32dp"
+            android:text="00:00"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:id="@+id/tv_song_title2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/song_duration_start"
+            android:layout_marginTop="16dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="Song title"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_artist_and_album2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_song_title2"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="Artist: Unknown - Album: Music "
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:id="@+id/btn_media"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_artist_and_album2"
+            android:layout_marginTop="32dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
+
+            <ImageView
+                android:id="@+id/btn_shuffle"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:src="@drawable/ic_shuffle" />
+
+            <ImageView
+                android:id="@+id/btn_previous2"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:src="@drawable/ic_previous" />
+
+            <ImageView
+                android:id="@+id/btn_play2"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:src="@drawable/ic_play" />
+
+            <ImageView
+                android:id="@+id/btn_next2"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:src="@drawable/ic_next" />
+
+            <ImageView
+                android:id="@+id/btn_repeat"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:src="@drawable/ic_repeat_all" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:layout_marginTop="32dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btn_media"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/ic_volume_down"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_volume_down" />
+            <SeekBar
+                android:layout_weight="1"
+                android:progress="50"
+                android:id="@+id/volume_bar"
+                style="@style/MySeekBar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:splitTrack="false"
+                android:thumbTint="@color/main_color" />
+            <ImageView
+                android:id="@+id/ic_volume_up"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_volume_up" />
 
         </LinearLayout>
 

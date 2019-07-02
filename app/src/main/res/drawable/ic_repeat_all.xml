@@ -1,0 +1,25 @@
+<vector android:autoMirrored="true" android:height="24dp"
+    android:viewportHeight="130.44" android:viewportWidth="130.44"
+    android:width="24dp" xmlns:aapt="http://schemas.android.com/aapt" xmlns:android="http://schemas.android.com/apk/res/android">
+    <path android:pathData="M65.22,65.22m-65.22,0a65.22,65.22 0,1 1,130.44 0a65.22,65.22 0,1 1,-130.44 0">
+        <aapt:attr name="android:fillColor">
+            <gradient android:endX="130.44" android:endY="65.22"
+                android:startX="0" android:startY="65.22" android:type="linear">
+                <item android:color="#FF000092" android:offset="0"/>
+                <item android:color="#FF00007D" android:offset="1"/>
+            </gradient>
+        </aapt:attr>
+    </path>
+    <path android:pathData="M65.22,65.22m-54.35,0a54.35,54.35 0,1 1,108.7 0a54.35,54.35 0,1 1,-108.7 0">
+        <aapt:attr name="android:fillColor">
+            <gradient android:endX="119.57" android:endY="65.22"
+                android:startX="10.87" android:startY="65.22" android:type="linear">
+                <item android:color="#FF00007D" android:offset="0"/>
+                <item android:color="#FF000092" android:offset="1"/>
+            </gradient>
+        </aapt:attr>
+    </path>
+    <path android:fillAlpha="0.8" android:fillColor="#a7a9ac"
+        android:pathData="M96.79,40.58a39.46,39.46 0,0 0,-67.4 28.76h-5.8a1.45,1.45 0,0 0,-1.5 1.44h0a1.56,1.56 0,0 0,0.22 0.78l10.64,18.42a1.47,1.47 0,0 0,1.28 0.77,1.49 1.49,0 0,0 1.28,-0.77l10.64,-18.42a1.55,1.55 0,0 0,0.21 -0.78,1.45 1.45,0 0,0 -1.5,-1.44L39.26,69.34a29.64,29.64 0,1 1,21.19 27.58,5.67 5.67,0 0,0 -6.77,2.65 4.5,4.5 0,0 0,2.4 6.32,39.5 39.5,0 0,0 40.73,-65.31Z" android:strokeAlpha="0.8"/>
+    <path android:fillColor="#fff" android:pathData="M93.5,37.26a39.47,39.47 0,0 0,-67.41 28.76L20.26,66.02a1.46,1.46 0,0 0,-1.5 1.45h0a1.54,1.54 0,0 0,0.21 0.77l10.64,18.43a1.49,1.49 0,0 0,1.28 0.77,1.47 1.47,0 0,0 1.28,-0.77L42.85,68.26a1.55,1.55 0,0 0,0.22 -0.77,1.46 1.46,0 0,0 -1.5,-1.45h-5.62a29.64,29.64 0,1 1,21.19 27.59,5.67 5.67,0 0,0 -6.77,2.65 4.49,4.49 0,0 0,2.4 6.32A39.51,39.51 0,0 0,93.5 37.26Z"/>
+</vector>

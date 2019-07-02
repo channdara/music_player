@@ -44,17 +44,6 @@
             android:textSize="18sp"
             android:visibility="gone" />
 
-        <SeekBar
-            android:id="@+id/seek_bar"
-            style="@style/MySeekBar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:splitTrack="false"
-            android:thumbTint="@color/main_color" />
-
     </RelativeLayout>
 
     <include layout="@layout/sliding_up_panel" />
