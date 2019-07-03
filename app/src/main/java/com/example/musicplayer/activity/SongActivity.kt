@@ -15,16 +15,20 @@ import com.example.musicplayer.adapter.SongAdapter
 import com.example.musicplayer.listener.RecyclerViewListener
 import com.example.musicplayer.model.Song
 import com.example.musicplayer.util.PermissionUtil
+import com.sothree.slidinguppanel.SlidingUpPanelLayout
+import kotlinx.android.synthetic.main.activity_song.*
 
 class SongActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var textViewErrorMessage: TextView
     private lateinit var seekBar: SeekBar
     private lateinit var adapter: SongAdapter
+    private lateinit var slidingUpPanel: SlidingUpPanelLayout
+
     private var errorMessage: String = ""
     private var previousIndex: Int = -1
 
-    private val postDelayed: Long = 250
+    private val postDelayed: Long = 1000
     private val songList: ArrayList<Song> = ArrayList()
     private val mediaPlayer: MediaPlayer = MediaPlayer()
     private val handler: Handler = Handler()
@@ -40,13 +44,14 @@ class SongActivity : AppCompatActivity() {
         setContentView(R.layout.activity_song)
         initComponents()
         checkAndRequestPermissions()
+        setupSlidingUpPanel()
     }
 
     private fun initComponents() {
         recyclerView = findViewById(R.id.recycler_view)
         textViewErrorMessage = findViewById(R.id.tv_error_message)
-        seekBar = findViewById(R.id.seek_bar)
-
+        seekBar = findViewById(R.id.seek_bar_song)
+        slidingUpPanel = findViewById(R.id.layout_sliding_up_panel)
     }
 
     private fun checkAndRequestPermissions() {
@@ -58,6 +63,35 @@ class SongActivity : AppCompatActivity() {
             return
         }
         checkAndRequestPermissions()
+    }
+
+    private fun setupSlidingUpPanel() {
+        slidingUpPanel.addPanelSlideListener(object : SlidingUpPanelLayout.PanelSlideListener {
+            override fun onPanelSlide(panel: View?, slideOffset: Float) {
+                if (slideOffset >= 0.9) {
+                    layout_mini_play.visibility = View.GONE
+                    img_arrow_down.visibility = View.VISIBLE
+                    recyclerView.visibility = View.GONE
+                    return
+                }
+                layout_mini_play.visibility = View.VISIBLE
+                img_arrow_down.visibility = View.GONE
+                recyclerView.visibility = View.VISIBLE
+            }
+
+            override fun onPanelStateChanged(
+                panel: View?,
+                previousState: SlidingUpPanelLayout.PanelState?,
+                newState: SlidingUpPanelLayout.PanelState?
+            ) {
+                if (newState == SlidingUpPanelLayout.PanelState.EXPANDED) {
+                    slidingUpPanel.setDragView(R.id.img_arrow_down)
+                }
+                if (newState == SlidingUpPanelLayout.PanelState.COLLAPSED) {
+                    slidingUpPanel.setDragView(R.id.layout_drag_view)
+                }
+            }
+        })
     }
 
     private fun fetchSong() {
