@@ -5,9 +5,11 @@ import android.os.Bundle
 import android.os.Handler
 import android.provider.MediaStore
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.AppCompatImageView
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.View
+import android.widget.LinearLayout
 import android.widget.SeekBar
 import android.widget.TextView
 import com.example.musicplayer.R
@@ -16,7 +18,8 @@ import com.example.musicplayer.listener.RecyclerViewListener
 import com.example.musicplayer.model.Song
 import com.example.musicplayer.util.PermissionUtil
 import com.sothree.slidinguppanel.SlidingUpPanelLayout
-import kotlinx.android.synthetic.main.activity_song.*
+import com.sothree.slidinguppanel.SlidingUpPanelLayout.PanelSlideListener
+import com.sothree.slidinguppanel.SlidingUpPanelLayout.PanelState
 
 class SongActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
@@ -24,6 +27,8 @@ class SongActivity : AppCompatActivity() {
     private lateinit var seekBar: SeekBar
     private lateinit var adapter: SongAdapter
     private lateinit var slidingUpPanel: SlidingUpPanelLayout
+    private lateinit var imgArrowDown: AppCompatImageView
+    private lateinit var layoutMiniPlay: LinearLayout
 
     private var errorMessage: String = ""
     private var previousIndex: Int = -1
@@ -52,6 +57,8 @@ class SongActivity : AppCompatActivity() {
         textViewErrorMessage = findViewById(R.id.tv_error_message)
         seekBar = findViewById(R.id.seek_bar_song)
         slidingUpPanel = findViewById(R.id.layout_sliding_up_panel)
+        imgArrowDown = findViewById(R.id.img_mini_play_arrow_down)
+        layoutMiniPlay = findViewById(R.id.layout_mini_play)
     }
 
     private fun checkAndRequestPermissions() {
@@ -66,29 +73,24 @@ class SongActivity : AppCompatActivity() {
     }
 
     private fun setupSlidingUpPanel() {
-        slidingUpPanel.addPanelSlideListener(object : SlidingUpPanelLayout.PanelSlideListener {
+        slidingUpPanel.addPanelSlideListener(object : PanelSlideListener {
             override fun onPanelSlide(panel: View?, slideOffset: Float) {
                 if (slideOffset >= 0.9) {
-                    layout_mini_play.visibility = View.GONE
-                    img_arrow_down.visibility = View.VISIBLE
+                    layoutMiniPlay.visibility = View.GONE
+                    imgArrowDown.visibility = View.VISIBLE
                     recyclerView.visibility = View.GONE
                     return
                 }
-                layout_mini_play.visibility = View.VISIBLE
-                img_arrow_down.visibility = View.GONE
+                layoutMiniPlay.visibility = View.VISIBLE
+                imgArrowDown.visibility = View.GONE
                 recyclerView.visibility = View.VISIBLE
             }
 
-            override fun onPanelStateChanged(
-                panel: View?,
-                previousState: SlidingUpPanelLayout.PanelState?,
-                newState: SlidingUpPanelLayout.PanelState?
-            ) {
-                if (newState == SlidingUpPanelLayout.PanelState.EXPANDED) {
-                    slidingUpPanel.setDragView(R.id.img_arrow_down)
-                }
-                if (newState == SlidingUpPanelLayout.PanelState.COLLAPSED) {
-                    slidingUpPanel.setDragView(R.id.layout_drag_view)
+            override fun onPanelStateChanged(panel: View?, previousState: PanelState?, newState: PanelState?) {
+                when (newState) {
+                    PanelState.EXPANDED -> slidingUpPanel.setDragView(R.id.img_mini_play_arrow_down)
+                    PanelState.COLLAPSED -> slidingUpPanel.setDragView(R.id.layout_drag_view)
+                    else -> slidingUpPanel.setDragView(R.id.layout_drag_view)
                 }
             }
         })
@@ -127,6 +129,7 @@ class SongActivity : AppCompatActivity() {
             textViewErrorMessage.visibility = View.VISIBLE
             return
         }
+        textViewErrorMessage.visibility = View.GONE
         adapter = SongAdapter(songList, object : RecyclerViewListener {
             override fun onItemClick(index: Int) {
                 playSong(index)
