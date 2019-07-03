@@ -16,7 +16,6 @@ import com.example.musicplayer.R
 import com.example.musicplayer.adapter.SongAdapter
 import com.example.musicplayer.listener.RecyclerViewListener
 import com.example.musicplayer.model.Song
-import com.example.musicplayer.util.PermissionUtil
 import com.sothree.slidinguppanel.SlidingUpPanelLayout
 import com.sothree.slidinguppanel.SlidingUpPanelLayout.PanelSlideListener
 import com.sothree.slidinguppanel.SlidingUpPanelLayout.PanelState
@@ -48,7 +47,9 @@ class SongActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_song)
         initComponents()
-        checkAndRequestPermissions()
+        fetchSong()
+        setupRecyclerView()
+        setupSeekBar()
         setupSlidingUpPanel()
     }
 
@@ -59,17 +60,6 @@ class SongActivity : AppCompatActivity() {
         slidingUpPanel = findViewById(R.id.layout_sliding_up_panel)
         imgArrowDown = findViewById(R.id.img_mini_play_arrow_down)
         layoutMiniPlay = findViewById(R.id.layout_mini_play)
-    }
-
-    private fun checkAndRequestPermissions() {
-        PermissionUtil.requestPhonePermissions(this)
-        if (PermissionUtil.isPhonePermissionGranted(this)) {
-            fetchSong()
-            setupRecyclerView()
-            setupSeekBar()
-            return
-        }
-        checkAndRequestPermissions()
     }
 
     private fun setupSlidingUpPanel() {

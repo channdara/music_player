@@ -3,7 +3,7 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimaryDark">@color/color_primary</item>
         <item name="colorPrimary">@color/color_primary</item>
-        <item name="colorAccent">@android:color/holo_red_light</item>
+        <item name="colorAccent">@color/color_accent</item>
         <item name="android:fontFamily">@font/product_sans_regular</item>
     </style>
 
