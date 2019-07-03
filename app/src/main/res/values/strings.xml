@@ -2,4 +2,7 @@
     <string name="app_name">MP3 Player</string>
     <string name="toolbar_title">Music</string>
     <string name="no_music_found_on_your_phone">No music found on your phone!</string>
+    <string name="default_song_title">Song Title</string>
+    <string name="default_song_album_and_artist">Artist: Unknown - Album: Music</string>
+    <string name="default_song_duration">00:00</string>
 </resources>

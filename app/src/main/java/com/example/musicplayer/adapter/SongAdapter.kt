@@ -38,7 +38,7 @@ class SongAdapter(
             tvSongArtistAndAlbum.text = song.getArtistAndAlbum(song.artist, song.album)
             if (song.isPlaying) {
                 imgIsPlaying.setImageResource(android.R.drawable.ic_media_play)
-                itemView.setBackgroundColor(ContextCompat.getColor(context, R.color.main_color))
+                itemView.setBackgroundColor(ContextCompat.getColor(context, R.color.color_primary))
             } else {
                 imgIsPlaying.setImageResource(0)
                 itemView.setBackgroundColor(Color.TRANSPARENT)

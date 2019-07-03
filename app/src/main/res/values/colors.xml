@@ -2,6 +2,6 @@
 <resources>
     <color name="color_background">#2B2B2B</color>
     <color name="ic_launcher_background">#ffffff</color>
-    <color name="main_color">#0E111F</color>
+    <color name="color_primary">#0E111F</color>
 
 </resources>
