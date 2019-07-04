@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.sothree.slidinguppanel.SlidingUpPanelLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/layout_sliding_up_panel"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_background"
-    android:gravity="bottom"
-    app:umanoPanelHeight="96dp">
+    android:background="@color/color_background">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -42,95 +38,6 @@
 
     </RelativeLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/color_primary"
-        android:orientation="vertical"
-        android:padding="16dp">
+    <include layout="@layout/song_bottom_sheet" />
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="64dp">
-
-            <android.support.v7.widget.AppCompatImageView
-                android:id="@+id/img_mini_play_arrow_down"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingBottom="32dp"
-                android:src="@drawable/ic_arrow_down"
-                android:visibility="gone" />
-
-            <LinearLayout
-                android:id="@+id/layout_mini_play"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/img_mini_song_previous"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:src="@drawable/ic_previous"
-                    app:civ_border_color="@android:color/white"
-                    app:civ_border_width="2dp" />
-
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/img_mini_song_play_and_pause"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:src="@drawable/ic_play"
-                    app:civ_border_color="@android:color/white"
-                    app:civ_border_width="2dp" />
-
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/img_mini_song_next"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:src="@drawable/ic_next"
-                    app:civ_border_color="@android:color/white"
-                    app:civ_border_width="2dp" />
-
-                <LinearLayout
-                    android:id="@+id/layout_drag_view"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="16dp"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/tv_mini_song_title"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:ellipsize="end"
-                        android:maxLines="1"
-                        android:text="@string/default_song_title"
-                        android:textColor="@android:color/white"
-                        android:textSize="18sp" />
-
-                    <TextView
-                        android:id="@+id/tv_mini_song_album_and_artist"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:ellipsize="end"
-                        android:maxLines="1"
-                        android:text="@string/default_song_album_and_artist"
-                        android:textColor="@android:color/white"
-                        android:textSize="16sp" />
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-        </RelativeLayout>
-
-        <include layout="@layout/song_sliding_up_panel" />
-
-    </LinearLayout>
-
-</com.sothree.slidinguppanel.SlidingUpPanelLayout>
+</android.support.design.widget.CoordinatorLayout>

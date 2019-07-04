@@ -5,4 +5,7 @@
     <color name="color_accent">#FF0000</color>
     <color name="color_splash_screen_gif">#0E111F</color>
     <color name="ic_launcher_background">#FFFFFF</color>
+    <color name="color_green">#FF0000</color>
+    <color name="color_orange">#FF0000</color>
+    <color name="color_red">#FF0000</color>
 </resources>
