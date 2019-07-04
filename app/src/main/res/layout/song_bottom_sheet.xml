@@ -36,6 +36,7 @@
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:background="@drawable/song_circle_image_white"
+                android:padding="1dp"
                 android:src="@drawable/ic_previous_circle" />
 
             <android.support.v7.widget.AppCompatImageView
@@ -45,6 +46,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/song_circle_image_white"
+                android:padding="1dp"
                 android:src="@drawable/ic_play_circle" />
 
             <android.support.v7.widget.AppCompatImageView
@@ -52,6 +54,7 @@
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:background="@drawable/song_circle_image_white"
+                android:padding="1dp"
                 android:src="@drawable/ic_next_circle" />
 
             <LinearLayout
@@ -168,6 +171,7 @@
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:background="@drawable/song_circle_image_white"
+            android:padding="1dp"
             android:src="@drawable/ic_shuffle_circle" />
 
         <android.support.v7.widget.AppCompatImageView
@@ -177,6 +181,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/song_circle_image_white"
+            android:padding="1dp"
             android:src="@drawable/ic_previous_circle" />
 
         <android.support.v7.widget.AppCompatImageView
@@ -184,6 +189,7 @@
             android:layout_width="64dp"
             android:layout_height="64dp"
             android:background="@drawable/song_circle_image_white"
+            android:padding="2dp"
             android:src="@drawable/ic_play_circle" />
 
         <android.support.v7.widget.AppCompatImageView
@@ -193,6 +199,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/song_circle_image_white"
+            android:padding="1dp"
             android:src="@drawable/ic_next_circle" />
 
 
@@ -201,6 +208,7 @@
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:background="@drawable/song_circle_image_white"
+            android:padding="1dp"
             android:src="@drawable/ic_repeat_circle" />
 
     </LinearLayout>
