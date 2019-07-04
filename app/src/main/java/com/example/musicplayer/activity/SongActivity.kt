@@ -4,8 +4,10 @@ import android.media.MediaPlayer
 import android.os.Bundle
 import android.os.Handler
 import android.provider.MediaStore
+import android.support.design.widget.BottomSheetBehavior
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.AppCompatImageView
+import android.support.v7.widget.LinearLayoutCompat
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.View
@@ -16,18 +18,16 @@ import com.example.musicplayer.R
 import com.example.musicplayer.adapter.SongAdapter
 import com.example.musicplayer.listener.RecyclerViewListener
 import com.example.musicplayer.model.Song
-import com.sothree.slidinguppanel.SlidingUpPanelLayout
-import com.sothree.slidinguppanel.SlidingUpPanelLayout.PanelSlideListener
-import com.sothree.slidinguppanel.SlidingUpPanelLayout.PanelState
 
 class SongActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var textViewErrorMessage: TextView
     private lateinit var seekBar: SeekBar
     private lateinit var adapter: SongAdapter
-    private lateinit var slidingUpPanel: SlidingUpPanelLayout
     private lateinit var imgArrowDown: AppCompatImageView
     private lateinit var layoutMiniPlay: LinearLayout
+    private lateinit var layoutBottomSheet: LinearLayoutCompat
+    private lateinit var layoutDragView: LinearLayout
 
     private var errorMessage: String = ""
     private var previousIndex: Int = -1
@@ -50,40 +50,17 @@ class SongActivity : AppCompatActivity() {
         fetchSong()
         setupRecyclerView()
         setupSeekBar()
-        setupSlidingUpPanel()
+        setupBottomSheet()
     }
 
     private fun initComponents() {
         recyclerView = findViewById(R.id.recycler_view)
         textViewErrorMessage = findViewById(R.id.tv_error_message)
         seekBar = findViewById(R.id.seek_bar_song)
-        slidingUpPanel = findViewById(R.id.layout_sliding_up_panel)
         imgArrowDown = findViewById(R.id.img_mini_play_arrow_down)
         layoutMiniPlay = findViewById(R.id.layout_mini_play)
-    }
-
-    private fun setupSlidingUpPanel() {
-        slidingUpPanel.addPanelSlideListener(object : PanelSlideListener {
-            override fun onPanelSlide(panel: View?, slideOffset: Float) {
-                if (slideOffset >= 0.9) {
-                    layoutMiniPlay.visibility = View.GONE
-                    imgArrowDown.visibility = View.VISIBLE
-                    recyclerView.visibility = View.GONE
-                    return
-                }
-                layoutMiniPlay.visibility = View.VISIBLE
-                imgArrowDown.visibility = View.GONE
-                recyclerView.visibility = View.VISIBLE
-            }
-
-            override fun onPanelStateChanged(panel: View?, previousState: PanelState?, newState: PanelState?) {
-                when (newState) {
-                    PanelState.EXPANDED -> slidingUpPanel.setDragView(R.id.img_mini_play_arrow_down)
-                    PanelState.COLLAPSED -> slidingUpPanel.setDragView(R.id.layout_drag_view)
-                    else -> slidingUpPanel.setDragView(R.id.layout_drag_view)
-                }
-            }
-        })
+        layoutBottomSheet = findViewById(R.id.layout_bottom_sheet)
+        layoutDragView = findViewById(R.id.layout_drag_view)
     }
 
     private fun fetchSong() {
@@ -181,5 +158,30 @@ class SongActivity : AppCompatActivity() {
                 }
             }
         })
+    }
+
+    private fun setupBottomSheet() {
+        val bottomSheetBehavior = BottomSheetBehavior.from(layoutBottomSheet)
+        bottomSheetBehavior.setBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback() {
+            override fun onSlide(view: View, offSet: Float) {
+                if (offSet >= 0.9) {
+                    layoutMiniPlay.visibility = View.GONE
+                    imgArrowDown.visibility = View.VISIBLE
+                    recyclerView.visibility = View.GONE
+                    return
+                }
+                layoutMiniPlay.visibility = View.VISIBLE
+                imgArrowDown.visibility = View.GONE
+                recyclerView.visibility = View.VISIBLE
+            }
+
+            override fun onStateChanged(view: View, state: Int) {}
+        })
+        layoutDragView.setOnClickListener {
+            bottomSheetBehavior.state = BottomSheetBehavior.STATE_EXPANDED
+        }
+        imgArrowDown.setOnClickListener {
+            bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
+        }
     }
 }
