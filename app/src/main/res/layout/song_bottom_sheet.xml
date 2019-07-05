@@ -97,12 +97,20 @@
         android:layout_height="0dp"
         android:layout_weight="1">
 
-        <android.support.v7.widget.AppCompatImageView
-            android:id="@+id/img_song_thumbnail"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
+        <android.support.v7.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:src="@drawable/default_song_album" />
+            app:cardCornerRadius="8dp">
+
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/img_song_thumbnail"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:background="@drawable/app_icon_background"
+                app:srcCompat="@mipmap/ic_launcher_foreground" />
+
+        </android.support.v7.widget.CardView>
 
     </FrameLayout>
 
@@ -207,7 +215,7 @@
             android:id="@+id/img_song_repeat"
             android:layout_width="32dp"
             android:layout_height="32dp"
-            android:background="@drawable/song_circle_image_red"
+            android:background="@drawable/song_circle_image_orange"
             android:padding="1dp"
             android:src="@drawable/ic_repeat_circle" />
 

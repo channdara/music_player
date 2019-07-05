@@ -5,10 +5,12 @@
         <item name="colorPrimary">@color/color_primary</item>
         <item name="colorAccent">@color/color_accent</item>
         <item name="android:fontFamily">@font/product_sans_regular</item>
+        <item name="android:windowBackground">@color/color_background</item>
     </style>
 
     <style name="SplashScreen" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowFullscreen">true</item>
+        <item name="android:windowBackground">@color/color_primary</item>
     </style>
 
 </resources>

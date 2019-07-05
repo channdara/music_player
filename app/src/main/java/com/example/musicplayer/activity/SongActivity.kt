@@ -28,6 +28,7 @@ class SongActivity : AppCompatActivity() {
     private lateinit var layoutMiniPlay: LinearLayout
     private lateinit var layoutBottomSheet: LinearLayoutCompat
     private lateinit var layoutDragView: LinearLayout
+    private lateinit var bottomSheetBehavior: BottomSheetBehavior<LinearLayoutCompat>
 
     private var errorMessage: String = ""
     private var previousIndex: Int = -1
@@ -53,6 +54,14 @@ class SongActivity : AppCompatActivity() {
         setupBottomSheet()
     }
 
+    override fun onBackPressed() {
+        if (bottomSheetBehavior.state == BottomSheetBehavior.STATE_EXPANDED) {
+            bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
+            return
+        }
+        super.onBackPressed()
+    }
+
     private fun initComponents() {
         recyclerView = findViewById(R.id.recycler_view)
         textViewErrorMessage = findViewById(R.id.tv_error_message)
@@ -61,6 +70,7 @@ class SongActivity : AppCompatActivity() {
         layoutMiniPlay = findViewById(R.id.layout_mini_play)
         layoutBottomSheet = findViewById(R.id.layout_bottom_sheet)
         layoutDragView = findViewById(R.id.layout_drag_view)
+        bottomSheetBehavior = BottomSheetBehavior.from(layoutBottomSheet)
     }
 
     private fun fetchSong() {
@@ -161,7 +171,6 @@ class SongActivity : AppCompatActivity() {
     }
 
     private fun setupBottomSheet() {
-        val bottomSheetBehavior = BottomSheetBehavior.from(layoutBottomSheet)
         bottomSheetBehavior.setBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback() {
             override fun onSlide(view: View, offSet: Float) {
                 if (offSet >= 0.9) {
@@ -174,15 +183,11 @@ class SongActivity : AppCompatActivity() {
             override fun onStateChanged(view: View, state: Int) {
                 when (state) {
                     BottomSheetBehavior.STATE_EXPANDED -> {
-                        layoutMiniPlay.animate().alpha(0f).duration = 500
                         layoutMiniPlay.visibility = View.GONE
-                        imgArrowDown.animate().alpha(1f).duration = 500
                         imgArrowDown.visibility = View.VISIBLE
                     }
                     BottomSheetBehavior.STATE_COLLAPSED -> {
-                        layoutMiniPlay.animate().alpha(1f).duration = 500
                         layoutMiniPlay.visibility = View.VISIBLE
-                        imgArrowDown.animate().alpha(0f).duration = 500
                         imgArrowDown.visibility = View.GONE
                     }
                 }
