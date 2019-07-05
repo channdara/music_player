@@ -165,21 +165,25 @@ class SongActivity : AppCompatActivity() {
         bottomSheetBehavior.setBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback() {
             override fun onSlide(view: View, offSet: Float) {
                 if (offSet >= 0.9) {
-                    layoutMiniPlay.visibility = View.GONE
-                    imgArrowDown.visibility = View.VISIBLE
                     recyclerView.visibility = View.GONE
                     return
                 }
-                layoutMiniPlay.visibility = View.VISIBLE
-                imgArrowDown.visibility = View.GONE
                 recyclerView.visibility = View.VISIBLE
             }
 
             override fun onStateChanged(view: View, state: Int) {
                 when (state) {
                     BottomSheetBehavior.STATE_EXPANDED -> {
+                        layoutMiniPlay.animate().alpha(0f).duration = 500
+                        layoutMiniPlay.visibility = View.GONE
+                        imgArrowDown.animate().alpha(1f).duration = 500
+                        imgArrowDown.visibility = View.VISIBLE
                     }
                     BottomSheetBehavior.STATE_COLLAPSED -> {
+                        layoutMiniPlay.animate().alpha(1f).duration = 500
+                        layoutMiniPlay.visibility = View.VISIBLE
+                        imgArrowDown.animate().alpha(0f).duration = 500
+                        imgArrowDown.visibility = View.GONE
                     }
                 }
             }
