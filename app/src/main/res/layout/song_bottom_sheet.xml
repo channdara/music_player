@@ -45,7 +45,7 @@
                 android:layout_height="48dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
-                android:background="@drawable/song_circle_image_white"
+                android:background="@drawable/song_circle_image_green"
                 android:padding="1dp"
                 android:src="@drawable/ic_play_circle" />
 
@@ -170,7 +170,7 @@
             android:id="@+id/img_song_shuffle"
             android:layout_width="32dp"
             android:layout_height="32dp"
-            android:background="@drawable/song_circle_image_white"
+            android:background="@drawable/song_circle_image_red"
             android:padding="1dp"
             android:src="@drawable/ic_shuffle_circle" />
 
@@ -188,7 +188,7 @@
             android:id="@+id/img_play_and_pause_song"
             android:layout_width="64dp"
             android:layout_height="64dp"
-            android:background="@drawable/song_circle_image_white"
+            android:background="@drawable/song_circle_image_green"
             android:padding="2dp"
             android:src="@drawable/ic_play_circle" />
 
@@ -207,7 +207,7 @@
             android:id="@+id/img_song_repeat"
             android:layout_width="32dp"
             android:layout_height="32dp"
-            android:background="@drawable/song_circle_image_white"
+            android:background="@drawable/song_circle_image_red"
             android:padding="1dp"
             android:src="@drawable/ic_repeat_circle" />
 

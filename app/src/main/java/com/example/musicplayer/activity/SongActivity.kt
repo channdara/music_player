@@ -175,7 +175,14 @@ class SongActivity : AppCompatActivity() {
                 recyclerView.visibility = View.VISIBLE
             }
 
-            override fun onStateChanged(view: View, state: Int) {}
+            override fun onStateChanged(view: View, state: Int) {
+                when (state) {
+                    BottomSheetBehavior.STATE_EXPANDED -> {
+                    }
+                    BottomSheetBehavior.STATE_COLLAPSED -> {
+                    }
+                }
+            }
         })
         layoutDragView.setOnClickListener {
             bottomSheetBehavior.state = BottomSheetBehavior.STATE_EXPANDED
