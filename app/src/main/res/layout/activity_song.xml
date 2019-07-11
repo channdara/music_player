@@ -5,7 +5,8 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/bottom_sheet_peek_height">
 
         <TextView
             android:id="@+id/toolbar_title"
@@ -23,7 +24,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@id/toolbar_title"
-            android:layout_marginBottom="96dp" />
+            android:clipToPadding="false"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp" />
 
         <TextView
             android:id="@+id/tv_error_message"

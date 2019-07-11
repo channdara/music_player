@@ -28,6 +28,6 @@ class SplashScreenActivity : AppCompatActivity() {
         Handler().postDelayed({
             startActivity(Intent(this, SongActivity::class.java))
             finish()
-        }, 2000)
+        }, 1000)
     }
 }

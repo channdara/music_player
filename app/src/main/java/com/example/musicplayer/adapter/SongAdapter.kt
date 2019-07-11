@@ -2,8 +2,6 @@ package com.example.musicplayer.adapter
 
 import android.content.Context
 import android.graphics.Color
-import android.support.v4.content.ContextCompat
-import android.support.v7.widget.AppCompatImageView
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -28,19 +26,16 @@ class SongAdapter(
     override fun onBindViewHolder(holder: SongViewHolder, position: Int) = holder.bind(holder.adapterPosition)
 
     inner class SongViewHolder(private val context: Context, view: View) : RecyclerView.ViewHolder(view) {
-        private val tvSongTitle: TextView = view.findViewById(R.id.tv_song_title)
-        private val tvSongArtistAndAlbum: TextView = view.findViewById(R.id.tv_artist_and_album)
-        private val imgIsPlaying: AppCompatImageView = view.findViewById(R.id.img_is_playing)
+        private val tvSongTitle: TextView = view.findViewById(R.id.tv_rcv_song_title)
+        private val tvSongArtistAndAlbum: TextView = view.findViewById(R.id.tv_rcv_artist_and_album)
 
         fun bind(index: Int) {
             val song = songList[index]
             tvSongTitle.text = song.title
             tvSongArtistAndAlbum.text = song.getArtistAndAlbum(song.artist, song.album)
             if (song.isPlaying) {
-                imgIsPlaying.setImageResource(android.R.drawable.ic_media_play)
-                itemView.setBackgroundColor(ContextCompat.getColor(context, R.color.color_primary))
+                itemView.setBackgroundColor(context.getColor(R.color.color_primary))
             } else {
-                imgIsPlaying.setImageResource(0)
                 itemView.setBackgroundColor(Color.TRANSPARENT)
             }
             itemView.setOnClickListener {

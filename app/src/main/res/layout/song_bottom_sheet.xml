@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/layout_bottom_sheet"
+    style="@style/BottomSheet"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_primary"
     android:orientation="vertical"
     android:padding="16dp"
-    android:translationZ="4dp"
     app:behavior_hideable="false"
-    app:behavior_peekHeight="96dp"
+    app:behavior_peekHeight="@dimen/bottom_sheet_peek_height"
     app:layout_behavior="android.support.design.widget.BottomSheetBehavior">
 
     <RelativeLayout
@@ -45,9 +44,10 @@
                 android:layout_height="48dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
-                android:background="@drawable/song_circle_image_green"
+                android:background="@drawable/song_circle_image_red"
+                android:contentDescription="@string/stop"
                 android:padding="1dp"
-                android:src="@drawable/ic_play_circle" />
+                android:src="@drawable/ic_stop_circle" />
 
             <android.support.v7.widget.AppCompatImageView
                 android:id="@+id/img_mini_song_next"
@@ -72,7 +72,7 @@
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
                     android:maxLines="1"
-                    android:text="@string/default_song_title"
+                    android:text="@string/select_song_to_play"
                     android:textColor="@android:color/white"
                     android:textSize="18sp" />
 
@@ -82,7 +82,7 @@
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
                     android:maxLines="1"
-                    android:text="@string/default_song_album_and_artist"
+                    android:text="@string/select_song_to_play"
                     android:textColor="@android:color/white"
                     android:textSize="16sp" />
 
@@ -151,9 +151,9 @@
         android:layout_marginTop="16dp"
         android:ellipsize="end"
         android:maxLines="1"
-        android:text="@string/default_song_title"
+        android:text="@string/select_song_to_play"
         android:textColor="@android:color/white"
-        android:textSize="18sp" />
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/tv_song_album_and_artist"
@@ -162,7 +162,7 @@
         android:layout_gravity="center"
         android:ellipsize="end"
         android:maxLines="1"
-        android:text="@string/default_song_album_and_artist"
+        android:text="@string/select_song_to_play"
         android:textColor="@android:color/white"
         android:textSize="16sp" />
 
@@ -179,6 +179,7 @@
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:background="@drawable/song_circle_image_red"
+            android:contentDescription="@string/shuffle_off"
             android:padding="1dp"
             android:src="@drawable/ic_shuffle_circle" />
 
@@ -193,12 +194,13 @@
             android:src="@drawable/ic_previous_circle" />
 
         <android.support.v7.widget.AppCompatImageView
-            android:id="@+id/img_play_and_pause_song"
+            android:id="@+id/img_song_play_and_pause"
             android:layout_width="64dp"
             android:layout_height="64dp"
-            android:background="@drawable/song_circle_image_green"
+            android:background="@drawable/song_circle_image_red"
+            android:contentDescription="@string/stop"
             android:padding="2dp"
-            android:src="@drawable/ic_play_circle" />
+            android:src="@drawable/ic_stop_circle" />
 
         <android.support.v7.widget.AppCompatImageView
             android:id="@+id/img_song_next"
@@ -215,7 +217,8 @@
             android:id="@+id/img_song_repeat"
             android:layout_width="32dp"
             android:layout_height="32dp"
-            android:background="@drawable/song_circle_image_orange"
+            android:background="@drawable/song_circle_image_red"
+            android:contentDescription="@string/repeat_off"
             android:padding="1dp"
             android:src="@drawable/ic_repeat_circle" />
 
@@ -248,4 +251,4 @@
 
     </LinearLayout>
 
-</android.support.v7.widget.LinearLayoutCompat>
+</LinearLayout>

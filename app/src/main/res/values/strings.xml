@@ -2,7 +2,14 @@
     <string name="app_name">Music</string>
     <string name="toolbar_title">Music</string>
     <string name="no_music_found_on_your_phone">No music found on your phone!</string>
-    <string name="default_song_title">Song Title</string>
-    <string name="default_song_album_and_artist">Artist: Unknown - Album: Music</string>
-    <string name="default_song_duration">00:00</string>
+    <string name="select_song_to_play">Please select song to play</string>
+    <string name="default_song_duration">00:00:00</string>
+    <string name="shuffle_on">Shuffle On</string>
+    <string name="shuffle_off">Shuffle Off</string>
+    <string name="repeat_off">Repeat Off</string>
+    <string name="repeat_one">Repeat One</string>
+    <string name="repeat_all">Repeat All</string>
+    <string name="stop">Stop</string>
+    <string name="play">Play</string>
+    <string name="pause">Pause</string>
 </resources>
