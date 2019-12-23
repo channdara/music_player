@@ -16,8 +16,8 @@ class SplashScreenActivity : AppCompatActivity() {
     }
 
     private fun checkAndRequestPermissions() {
-        PermissionUtil.requestPhonePermissions(this)
-        if (PermissionUtil.isPhonePermissionGranted(this)) {
+        PermissionUtil.requestPermissions(this)
+        if (PermissionUtil.allPermissionsGranted(this)) {
             startTimer()
             return
         }

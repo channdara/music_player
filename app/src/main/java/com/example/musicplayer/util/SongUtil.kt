@@ -9,14 +9,15 @@ import android.widget.TextView
 import com.example.musicplayer.R
 import com.example.musicplayer.helper.SongSharedPreferenceHelper
 import com.example.musicplayer.model.Song
-import com.example.musicplayer.model.SongUtilDataClass
 import java.util.concurrent.TimeUnit
 
-class SongUtil(private val context: Context, private val pref: SongSharedPreferenceHelper) {
-    val mediaPlayer = MediaPlayer()
+data class SongData(val songList: ArrayList<Song>, val errorMessage: String)
 
-    fun fetchLocalSong(): SongUtilDataClass {
-        val songList: ArrayList<Song> = ArrayList()
+class SongUtil(private val context: Context, private val pref: SongSharedPreferenceHelper) {
+    val mediaPlayer: MediaPlayer = MediaPlayer()
+
+    fun fetchLocalSong(): SongData {
+        val songs: ArrayList<Song> = ArrayList()
         try {
             val uri = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI
             val selection = MediaStore.Audio.Media.IS_MUSIC + " != 0"
@@ -28,14 +29,14 @@ class SongUtil(private val context: Context, private val pref: SongSharedPrefere
                     val title = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.TITLE))
                     val album = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.ALBUM))
                     val artist = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.ARTIST))
-                    songList.add(Song(path, title, album, artist))
+                    songs.add(Song(path, title, album, artist))
                 }
                 cursor.close()
             }
         } catch (e: Exception) {
-            return SongUtilDataClass(songList, e.message.toString())
+            return SongData(songs, e.message.toString())
         }
-        return SongUtilDataClass(songList, "")
+        return SongData(songs, "")
     }
 
     fun start(path: String) = mediaPlayer.apply {
